@@ -1,0 +1,16 @@
+name: Solicitação de Recurso
+description: Aqui você pode nos dar uma sugestão de ideias ou de códigos para melhorar nosso projeto
+labels: ["feature request"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Obrigado por reportar algum bug, mas se preferir venha falar conosco: https://discord.gg/3Wp6Erg2ce
+  - type: textarea
+    id: what-you-want
+    attributes:
+      label: O que você sugere?
+      description: Explique exatamente o que você quer que façamos para melhorar
+      placeholder: "Melhore a lint!"
+    validations:
+      required: true

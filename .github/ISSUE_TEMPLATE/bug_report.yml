@@ -1,0 +1,16 @@
+name: Reporte de Bug
+description: Reporte um erro no nosso codigo ou no proprio projeto
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Obrigado por reportar algum bug, mas se preferir venha falar conosco: https://discord.gg/3Wp6Erg2ce
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: O que aconteceu?
+      description: Explique mais para nós sobre o problema que está tendo
+      placeholder: "Apareceu um 404 na pagina /"
+    validations:
+      required: true
