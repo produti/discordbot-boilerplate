@@ -1,13 +1,12 @@
-import { ClientOptions, Client } from 'discord.js';
-import { resolve } from 'path';
+import { ClientOptions, Client as DiscordClient } from 'discord.js';
 
-import { readFolder } from '../utils/folders';
-import { Listener } from './Listener';
-import { Command } from './Command';
+import { readFolder } from './utils/folders';
+import { Listener } from './domain/Listener';
+import { Command } from './domain/Command';
 
 export type Constructable<T> = new (...args: unknown[]) => T;
 
-export class ExtendedClient extends Client {
+export class Client extends DiscordClient {
   commands: Command[];
 
   constructor(clientOptions: ClientOptions, token: string) {
@@ -24,7 +23,7 @@ export class ExtendedClient extends Client {
   }
 
   registerListeners(): this {
-    readFolder<Constructable<Listener>>(resolve(__dirname, '../listeners'))
+    readFolder<Constructable<Listener>>('../listeners')
       .map((Event) => new Event(this))
       .forEach((evt) => this[evt.emitter](evt.name, (...args: unknown[]) => evt.override(...args)));
 
@@ -32,7 +31,7 @@ export class ExtendedClient extends Client {
   }
 
   registerCommands(): this {
-    this.commands = readFolder<Constructable<Command>>(resolve(__dirname, '../commands'))
+    this.commands = readFolder<Constructable<Command>>('../commands')
       .map((Command) => new Command(this));
 
     return this;

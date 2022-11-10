@@ -1,7 +1,7 @@
 import { ActivityType } from 'discord.js';
-import { ExtendedClient } from './core/Client';
+import { Client } from './Client';
 
-const client = new ExtendedClient({
+const client = new Client({
   intents: ['Guilds', 'GuildMembers'],
   presence: {
     status: 'online',

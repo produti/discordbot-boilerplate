@@ -1,8 +1,8 @@
-import { ExtendedClient } from '../core/Client';
-import { Listener } from '../core/Listener';
+import { Client } from '../Client';
+import { Listener } from '../domain/Listener';
 
 export default class extends Listener {
-  constructor(client: ExtendedClient) {
+  constructor(client: Client) {
     super(client, {
       name: 'ready',
       emitter: 'once',

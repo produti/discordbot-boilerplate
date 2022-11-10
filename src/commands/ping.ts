@@ -1,10 +1,10 @@
 import { CommandInteraction } from 'discord.js';
 
-import { ExtendedClient } from '../core/Client';
-import { Command } from '../core/Command';
+import { Client } from '../Client';
+import { Command } from '../domain/Command';
 
 export default class extends Command {
-  constructor(client: ExtendedClient) {
+  constructor(client: Client) {
     super(client, {
       name: 'ping',
       description: 'See the latency',

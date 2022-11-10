@@ -1,5 +1,5 @@
 import { ApplicationCommandOptionData, CommandInteraction } from 'discord.js';
-import { ExtendedClient } from './Client';
+import { Client } from '../Client';
 
 export interface CommandOptions {
   name: string;
@@ -8,7 +8,7 @@ export interface CommandOptions {
 }
 
 export abstract class Command {
-  client: ExtendedClient;
+  client: Client;
 
   name: string;
 
@@ -16,7 +16,7 @@ export abstract class Command {
 
   options: ApplicationCommandOptionData[];
 
-  constructor(client: ExtendedClient, data: CommandOptions) {
+  constructor(client: Client, data: CommandOptions) {
     Object.assign(this, data);
 
     this.client = client;

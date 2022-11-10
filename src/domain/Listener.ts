@@ -1,4 +1,4 @@
-import { ExtendedClient } from './Client';
+import { Client } from '../Client';
 
 export interface ListenerOptions {
   name: string;
@@ -6,13 +6,13 @@ export interface ListenerOptions {
 }
 
 export abstract class Listener {
-  client: ExtendedClient;
+  client: Client;
 
   name: string;
 
   emitter: string;
 
-  constructor(client: ExtendedClient, data: ListenerOptions) {
+  constructor(client: Client, data: ListenerOptions) {
     this.client = client;
 
     this.name = data.name;
